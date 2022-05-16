@@ -32,6 +32,10 @@ Para rodar teste de carga:
 $ npm run autocannon
 ```
 
+## Jobs
+
+Foi criada uma rotina para atualização das moedas registradas, ela opera de minuto em minuto. É possível mudar a periodicidade editando a env `CURRENCY_CRON_EXPRESSION`
+
 ## Rotas
 
 GET: `/currency/rate?from={fromCurrency}&to={toCurrency}&amount={amount}`
