@@ -19,6 +19,8 @@ class App {
    */
   async main() {
     await this.startServer();
+    await this.startDb();
+    this.startCron();
   }
 
   /**
@@ -33,6 +35,18 @@ class App {
     this.server.listen(this.serverPort, () => {
       console.log(`server listening on port ${this.serverPort}`);
     });
+  }
+
+  async startDb() {
+    if (config.node_env !== "test") {
+      require("../config/mongo");
+    }
+  }
+
+  startCron() {
+    if (config.node_env !== "test") {
+      require("../../jobs/index");
+    }
   }
 
   getServer() {

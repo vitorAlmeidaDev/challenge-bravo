@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { node_env, mongo } = require("./environment");
-const seed = require("../../../seed");
+const seed = require("../seed");
 
 const mongoUri = `mongodb://${mongo.user}:${mongo.pass}@db:${mongo.port}/${mongo.dbName}?authSource=admin`;
 const mongoReconnect = mongo.reconnect;
