@@ -2,6 +2,7 @@ const express = require("express");
 const helmet = require("helmet");
 const config = require("../config/environment.js");
 const http = require("http");
+const routes = require("./routes");
 
 class App {
   serverPort = config.service.port;
@@ -31,6 +32,7 @@ class App {
   async startServer() {
     this.app.use(express.json());
     this.app.use(helmet());
+    this.app.use(routes);
     this.server = http.createServer(this.app);
     this.server.listen(this.serverPort, () => {
       console.log(`server listening on port ${this.serverPort}`);
