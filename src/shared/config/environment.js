@@ -14,7 +14,15 @@ module.exports = {
     dbName: process.env.DB_NAME,
     reconnect: process.env.DB_RECONNECT,
   },
+  redisConfig: {
+    host: process.env.DB_REDIS_HOST || "redis",
+    port: Number(process.env.DB_REDIS_PORT) || 6379,
+    ttl: Number(process.env.DB_REDIS_TTL) || 7200,
+  },
   externalapi: {
     url: process.env.EXTERNAL_API_URL,
+  },
+  currencyCron: {
+    cronExpression: process.env.CURRENCY_CRON_EXPRESSION || "1 * * * * *",
   },
 };
