@@ -14,4 +14,7 @@ module.exports = {
     dbName: process.env.DB_NAME,
     reconnect: process.env.DB_RECONNECT,
   },
+  externalapi: {
+    url: process.env.EXTERNAL_API_URL,
+  },
 };
