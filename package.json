@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./src/shared/infra/main.js",
-    "test:unitary": "jest -c jest.config.unitary.js"
+    "test:unitary": "jest -c jest.config.unitary.js --testPathPattern \"unitary/.*\\.test\\.js\"",
+    "test:e2e": "jest -c jest.config.e2e.js --testPathPattern \"e2e/.*\\.test\\.js\""
   },
   "repository": {
     "type": "git",
@@ -27,8 +28,11 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "helmet": "^5.0.2",
+    "mongodb-memory-server": "^8.5.2",
     "mongoose": "^6.3.3",
     "node-cron": "^3.0.0",
-    "redis": "^3.0.2"
+    "redis": "^3.0.2",
+    "redis-mock": "^0.56.3",
+    "supertest": "^6.2.3"
   }
 }
