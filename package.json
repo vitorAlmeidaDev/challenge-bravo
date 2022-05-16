@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src/shared/infra/main.js"
+    "dev": "nodemon ./src/shared/infra/main.js",
+    "test:unitary": "jest -c jest.config.unitary.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/vitorAlmeidaDev/challenge-bravo#readme",
   "devDependencies": {
+    "jest": "^28.1.0",
     "nodemon": "^2.0.16"
   },
   "dependencies": {
