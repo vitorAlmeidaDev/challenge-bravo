@@ -133,6 +133,14 @@ when status code `400`:
 }
 ```
 
+when status code `409`:
+
+```json
+{
+  "message": "Currency {CURRENCY_CODE} already exists"
+}
+```
+
 DELETE: `/currency/CODE`
 
 e.g: `localhost:3300/BTC`
