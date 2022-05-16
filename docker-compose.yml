@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  app:
+    build: .
+    entrypoint: .docker/entrypoint.sh
+    container_name: currency-app
+    ports:
+      - ${SERVICE_PORT}:3300
+    volumes:
+      - .:/home/node/app
+    depends_on:
+      - db
+      - redis
+    networks:
+      - currency
+    links:
+      - redis
+      - db
+
+  db:
+    image: mongo:4.2
+    container_name: db
+    restart: always
+    ports:
+      - ${DB_PORT}:27017
+    environment:
+      MONGO_INITDB_DATABASE: ${DB_NAME}
+      MONGO_INITDB_ROOT_USERNAME: ${DB_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${DB_PASS}
+    networks:
+      - currency
+
+  redis:
+    container_name: "redis"
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    networks:
+      - currency
+
+networks:
+  currency:
+    external: false
