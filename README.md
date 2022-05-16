@@ -8,8 +8,7 @@
 
 3 - Execute os seguintes comandos: 
 ```bash
-$ cp .env.exemple .env
-$ make up
+$ cp .env.exemple .env && make up
 ```
 
 ## Testes
