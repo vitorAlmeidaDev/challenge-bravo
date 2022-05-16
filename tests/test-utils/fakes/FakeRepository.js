@@ -1,4 +1,4 @@
-const { currencies } = require("../test-utils/mocks/currencyMock");
+const { currencies } = require("../mocks/currencyMock");
 const currencyMock = new Map(Object.entries(currencies));
 module.exports = class CurrencyRepository {
   async findByCode(code) {

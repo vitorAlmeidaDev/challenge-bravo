@@ -1,5 +1,5 @@
-const FakeRepository = require("./FakeRepository");
-const { getCurrencies } = require("./FakeExternalCurrencyApi");
-const FakeCache = require("./FakeCache");
+const FakeRepository = require("./fakes/FakeRepository");
+const { getCurrencies } = require("./fakes/FakeExternalCurrencyApi");
+const FakeCache = require("./fakes/FakeCache");
 
 module.exports = { FakeRepository, getCurrencies, FakeCache };
