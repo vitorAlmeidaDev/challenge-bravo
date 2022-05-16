@@ -7,7 +7,7 @@
     "dev": "nodemon ./src/shared/infra/main.js",
     "test:unitary": "jest -c jest.config.unitary.js --testPathPattern \"unitary/.*\\.test\\.js\"",
     "test:e2e": "jest -c jest.config.e2e.js --testPathPattern \"e2e/.*\\.test\\.js\"",
-    "autocannon": "npx autocannon -c 500 -d 5 --workers 10 --renderStatusCodes --warmup [ -c 1 -d 2 ] localhost:3300/currency/rate/BRL/100/EUR"
+    "autocannon": "npx autocannon -c 500 -d 5 --workers 10 --renderStatusCodes --warmup [ -c 1 -d 2 ] localhost:3300/currency/rate?from=BRL&to=EUR&amount=100"
   },
   "repository": {
     "type": "git",
