@@ -1,26 +1,33 @@
 # <img src="https://avatars1.githubusercontent.com/u/7063040?v=4&s=200.jpg" alt="Hurb" width="24" /> Bravo Challenge
 
-
 ## Como rodar o projeto
+
 1 - Clone o repositório
 
 2 - Vá até a pasta do repositório
 
-3 - Execute os seguintes comandos: 
+3 - Execute os seguintes comandos:
+
 ```bash
 $ cp .env.exemple .env && make up
 ```
 
 ## Testes
+
 Para rodar testes unitários:
+
 ```bash
 $ npm run test:unitary
 ```
+
 Para rodar testes e2e:
+
 ```bash
 $ npm run test:e2e
 ```
+
 Para rodar teste de carga:
+
 ```bash
 $ npm run autocannon
 ```
@@ -34,21 +41,26 @@ e.g: `localhost:3300/currency/rate?from=BRL&to=EUR&amount=100`
 Response structure:
 
 when status code `200`:
+
 ```json
 {
-    "convertedValue": 18.9839406791134
+  "convertedValue": 18.9839406791134
 }
 ```
+
 when status code `400`:
+
 ```json
 {
-    "message": "Missing parameters"
+  "message": "Missing parameters"
 }
 ```
+
 when status code `404`:
+
 ```json
 {
-    "message": "Currency not registered: {CURRENCY_CODE}"
+  "message": "Currency not registered: {CURRENCY_CODE}"
 }
 ```
 
@@ -59,24 +71,25 @@ e.g: `localhost:3300/currency`
 Response structure:
 
 when status code `200`:
+
 ```json
 [
-    {
-        "_id": "6282928e76ad0b3db6e7ac27",
-        "code": "USD",
-        "created_at": "2022-05-16T18:06:06.683Z",
-        "updated_at": "2022-05-16T18:10:02.056Z",
-        "__v": 0,
-        "rate_from_usd": 1
-    },
-    {
-        "_id": "6282928e76ad0b3db6e7ac2a",
-        "code": "BRL",
-        "created_at": "2022-05-16T18:06:06.704Z",
-        "updated_at": "2022-05-16T18:10:02.059Z",
-        "__v": 0,
-        "rate_from_usd": 5.059803
-    }
+  {
+    "_id": "6282928e76ad0b3db6e7ac27",
+    "code": "USD",
+    "created_at": "2022-05-16T18:06:06.683Z",
+    "updated_at": "2022-05-16T18:10:02.056Z",
+    "__v": 0,
+    "rate_from_usd": 1
+  },
+  {
+    "_id": "6282928e76ad0b3db6e7ac2a",
+    "code": "BRL",
+    "created_at": "2022-05-16T18:06:06.704Z",
+    "updated_at": "2022-05-16T18:10:02.059Z",
+    "__v": 0,
+    "rate_from_usd": 5.059803
+  }
 ]
 ```
 
@@ -87,29 +100,32 @@ e.g: `localhost:3300/currency`
 Body structure:
 
 ```json
-  {
-      "code": "USD",
-      "rate_from_usd": 1 //Obligatory when currency doesn't really exists
-  }
+{
+  "code": "USD",
+  "rate_from_usd": 1 //Obligatory when currency doesn't really exists
+}
 ```
 
 Response structure:
 
 when status code `201`:
+
 ```json
 {
-    "code": "USD",
-    "rate_from_usd": 1,
-    "_id": "628294ed76ad0b3db6e7ac77",
-    "created_at": "2022-05-16T18:16:13.265Z",
-    "updated_at": "2022-05-16T18:16:13.265Z",
-    "__v": 0
+  "code": "USD",
+  "rate_from_usd": 1,
+  "_id": "628294ed76ad0b3db6e7ac77",
+  "created_at": "2022-05-16T18:16:13.265Z",
+  "updated_at": "2022-05-16T18:16:13.265Z",
+  "__v": 0
 }
 ```
+
 when status code `400`:
+
 ```json
 {
-    "message": "rate_from_usd turns obligatory when creating fake currencies"
+  "message": "rate_from_usd turns obligatory when creating fake currencies"
 }
 ```
 
@@ -120,15 +136,23 @@ e.g: `localhost:3300/BTC`
 Response structure:
 
 when status code `204`:
+
 ```json
 //no content
 ```
+
 when status code `404`:
+
 ```json
 {
-    "message":  "Currency {CODE} not found"
+  "message": "Currency {CODE} not found"
 }
 ```
+
+## Teste de carga
+
+A aplicação suportou uma média de 5k requests por segundo.
+![Load test](./loadtest.jpeg "Load test")
 
 [[English](README.md) | [Portuguese](README.pt.md)]
 
