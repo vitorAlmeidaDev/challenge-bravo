@@ -1,5 +1,136 @@
 # <img src="https://avatars1.githubusercontent.com/u/7063040?v=4&s=200.jpg" alt="Hurb" width="24" /> Bravo Challenge
 
+
+## Como rodar o projeto
+1 - Clone o repositório
+
+2 - Vá até a pasta do repositório
+
+3 - Execute os seguintes comandos: 
+```bash
+$ cp .env.exemple .env
+$ make up
+```
+
+## Testes
+Para rodar testes unitários:
+```bash
+$ npm run test:unitary
+```
+Para rodar testes e2e:
+```bash
+$ npm run test:e2e
+```
+Para rodar teste de carga:
+```bash
+$ npm run autocannon
+```
+
+## Rotas
+
+GET: `/currency/rate?from={fromCurrency}&to={toCurrency}&amount={amount}`
+
+e.g: `localhost:3300/currency/rate?from=BRL&to=EUR&amount=100`
+
+Response structure:
+
+when status code `200`:
+```json
+{
+    "convertedValue": 18.9839406791134
+}
+```
+when status code `400`:
+```json
+{
+    "message": "Missing parameters"
+}
+```
+when status code `404`:
+```json
+{
+    "message": "Currency not registered: {CURRENCY_CODE}"
+}
+```
+
+GET: `/currency`
+
+e.g: `localhost:3300/currency`
+
+Response structure:
+
+when status code `200`:
+```json
+[
+    {
+        "_id": "6282928e76ad0b3db6e7ac27",
+        "code": "USD",
+        "created_at": "2022-05-16T18:06:06.683Z",
+        "updated_at": "2022-05-16T18:10:02.056Z",
+        "__v": 0,
+        "rate_from_usd": 1
+    },
+    {
+        "_id": "6282928e76ad0b3db6e7ac2a",
+        "code": "BRL",
+        "created_at": "2022-05-16T18:06:06.704Z",
+        "updated_at": "2022-05-16T18:10:02.059Z",
+        "__v": 0,
+        "rate_from_usd": 5.059803
+    }
+]
+```
+
+POST: `/currency`
+
+e.g: `localhost:3300/currency`
+
+Body structure:
+
+```json
+  {
+      "code": "USD",
+      "rate_from_usd": 1 //Obligatory when currency doesn't really exists
+  }
+```
+
+Response structure:
+
+when status code `201`:
+```json
+{
+    "code": "USD",
+    "rate_from_usd": 1,
+    "_id": "628294ed76ad0b3db6e7ac77",
+    "created_at": "2022-05-16T18:16:13.265Z",
+    "updated_at": "2022-05-16T18:16:13.265Z",
+    "__v": 0
+}
+```
+when status code `400`:
+```json
+{
+    "message": "rate_from_usd turns obligatory when creating fake currencies"
+}
+```
+
+DELETE: `/currency/CODE`
+
+e.g: `localhost:3300/BTC`
+
+Response structure:
+
+when status code `204`:
+```json
+//no content
+```
+when status code `404`:
+```json
+{
+    "message":  "Currency {CODE} not found"
+}
+```
+
 [[English](README.md) | [Portuguese](README.pt.md)]
 
 Build an API, which responds to JSON, for currency conversion. It must have a backing currency (USD) and make conversions between different currencies with **real and live values**.
