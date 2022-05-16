@@ -22,19 +22,19 @@
   "homepage": "https://github.com/vitorAlmeidaDev/challenge-bravo#readme",
   "devDependencies": {
     "jest": "^28.1.0",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "redis-mock": "^0.56.3",
+    "supertest": "^6.2.3",
+    "mongodb-memory-server": "^8.5.2",
+    "autocannon": "^7.9.0"
   },
   "dependencies": {
-    "autocannon": "^7.9.0",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "helmet": "^5.0.2",
-    "mongodb-memory-server": "^8.5.2",
     "mongoose": "^6.3.3",
     "node-cron": "^3.0.0",
-    "redis": "^3.0.2",
-    "redis-mock": "^0.56.3",
-    "supertest": "^6.2.3"
+    "redis": "^3.0.2"
   }
 }
