@@ -12,10 +12,10 @@ describe("Convert currency Use Case", () => {
   it("should convert correctly", async () => {
     FakeCache.set("BRL", "5");
     FakeCache.set("USD", "1");
-
+    const expectedValue = { convertedValue: 20 };
     const response = await sut.execute("BRL", "USD", 100);
 
-    expect(response).toBe(20);
+    expect(response).toEqual(expectedValue);
   });
 
   it("should not convert a currency that is not registered", async () => {
