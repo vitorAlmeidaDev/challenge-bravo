@@ -1,4 +1,4 @@
-const BadRequestError = require("../../errors/BadRequestError");
+const { BadRequestError } = require("../../errors");
 module.exports = class AddCurrencyUseCase {
   constructor(
     currencyRepository,

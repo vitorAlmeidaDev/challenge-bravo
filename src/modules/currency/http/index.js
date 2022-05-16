@@ -1,8 +1,10 @@
 const router = require("express").Router();
-const { addCurrencyController } = require("../useCases/addCurrency");
-const { listCurrencyController } = require("../useCases/listCurrency");
-const { deleteCurrencyController } = require("../useCases/deleteCurrency");
-const { convertCurrencyController } = require("../useCases/convertCurrency");
+const {
+  addCurrencyController,
+  listCurrencyController,
+  deleteCurrencyController,
+  convertCurrencyController,
+} = require("../useCases");
 
 router.post("/", (req, res) => {
   addCurrencyController.handle(req, res);
