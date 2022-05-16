@@ -19,7 +19,7 @@ module.exports = class ConvertCurrencyUseCase {
       throw new NotFoundError(`Currency not registered: ${notFound}`);
     }
 
-    const res = (Number(amount) / fromValue) * toValue;
-    return res;
+    const convertedValue = (Number(amount) / fromValue) * toValue;
+    return {convertedValue};
   }
 };
