@@ -1,4 +1,4 @@
-const { NotFoundError } = require("../../errors");
+const { NotFoundError, BadRequestError } = require("../../errors");
 module.exports = class ConvertCurrencyUseCase {
   constructor(currencyRepository, cacheRepository) {
     this.currencyRepository = currencyRepository;
@@ -6,6 +6,9 @@ module.exports = class ConvertCurrencyUseCase {
   }
 
   async execute(from, to, amount) {
+    if(!from | !to | !amount) {
+        throw new BadRequestError('Missing parameters')
+    };
     const [fromValue, toValue] = await Promise.all([
       Number(await this.cacheRepository.get(from)),
       Number(await this.cacheRepository.get(to)),

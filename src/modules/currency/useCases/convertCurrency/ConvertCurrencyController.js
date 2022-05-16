@@ -4,7 +4,7 @@ module.exports = class ConvertCurrencyController {
   }
 
   async handle(request, response) {
-    const { from, to, amount } = request.params;
+    const { from, to, amount } = request.query
     try {
       const res = await this.convertCurrencyUseCase.execute(from, to, amount);
       response.status(200).json(res);

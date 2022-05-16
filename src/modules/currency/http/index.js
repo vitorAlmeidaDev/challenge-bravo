@@ -18,7 +18,7 @@ router.delete("/:code", (req, res) => {
   deleteCurrencyController.handle(req, res);
 });
 
-router.get("/rate/:from/:amount/:to", (req, res) => {
+router.get("/rate", (req, res) => {
   convertCurrencyController.handle(req, res);
 });
 
