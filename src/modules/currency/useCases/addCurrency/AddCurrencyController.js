@@ -10,7 +10,7 @@ module.exports = class AddCurrencyController {
       response.status(201).json(res);
     } catch (err) {
       console.log(err);
-      response.status(err.status).json({ message: err.message });
+      response.status(err.status || 500).json({ message: err.message });
     }
   }
 };

@@ -10,7 +10,7 @@ module.exports = class DeleteCurrencyController {
       response.status(204).send();
     } catch (err) {
       console.log(err);
-      response.status(500).json(err);
+      response.status(err.status || 500).json({ message: err.message });
     }
   }
 };

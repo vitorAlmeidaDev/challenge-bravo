@@ -9,7 +9,7 @@ module.exports = class ConvertCurrencyController {
       const res = await this.convertCurrencyUseCase.execute(from, to, amount);
       response.status(200).json(res);
     } catch (err) {
-      response.status(err.status).json({ message: err.message });
+      response.status(err.status || 500).json({ message: err.message });
     }
   }
 };
