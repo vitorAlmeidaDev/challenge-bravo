@@ -1,32 +1,32 @@
 # <img src="https://avatars1.githubusercontent.com/u/7063040?v=4&s=200.jpg" alt="Hurb" width="24" /> Bravo Challenge
 
-## Como rodar o projeto
+## Running the application
 
-1 - Clone o repositório
+1 - Clone the repository
 
-2 - Vá até a pasta do repositório
+2 - Go to repository directory
 
-3 - Execute os seguintes comandos:
+3 - Execute the following commands:
 
 ```bash
 $ cp .env.exemple .env && make up
 ```
 
-## Testes
+## Tests
 
-Para rodar testes unitários:
+To run unit tests:
 
 ```bash
 $ npm run test:unitary
 ```
 
-Para rodar testes e2e:
+To run e2e tests:
 
 ```bash
 $ npm run test:e2e
 ```
 
-Para rodar teste de carga:
+To run load test (the application needs to be up):
 
 ```bash
 $ npm run autocannon
@@ -34,9 +34,11 @@ $ npm run autocannon
 
 ## Jobs
 
-Foi criada uma rotina para atualização das moedas registradas, ela opera de minuto em minuto. É possível mudar a periodicidade editando a env `CURRENCY_CRON_EXPRESSION`
+The application has a routine that updates all registered currencies every minute, it's possible to change the frequency by editting the following environmet variable: 
 
-## Rotas
+ `CURRENCY_CRON_EXPRESSION`
+
+## Routes
 
 GET: `/currency/rate?from={fromCurrency}&to={toCurrency}&amount={amount}`
 
@@ -161,9 +163,9 @@ when status code `404`:
 }
 ```
 
-## Teste de carga
+## Load test
 
-A aplicação suportou uma média de 5k requests por segundo.
+The application supports in average 5k requests per second.
 ![Load test](./loadtest.jpeg "Load test")
 
 [[English](README.md) | [Portuguese](README.pt.md)]
